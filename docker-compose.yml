@@ -44,7 +44,9 @@ services:
 
   watchtower:
     image: v2tec/watchtower:armhf-latest
-    command: --cleanup
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    command: 
+      - --interval 120
+      - --cleanup
 
