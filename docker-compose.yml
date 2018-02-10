@@ -30,14 +30,14 @@ services:
     networks:
       - traefik
     ports:
-      - 9000
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     labels:
       - "traefik.backend=portainer"
       - "traefik.frontend.rule=Host:portainer.cloud.carlosedp.com"
-      - "traefik.docker.network=${COMPOSE_PROJECT_NAME}_monitoring"
+      - "traefik.docker.network=${COMPOSE_PROJECT_NAME}_traefik"
       - "traefik.enable=true"
       - "traefik.port=9000"
       - "traefik.default.protocol=http"
