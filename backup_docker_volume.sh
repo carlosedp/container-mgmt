@@ -4,7 +4,7 @@
 if [[ $1 == '-a' ]]; then
     VOLUMES=$(docker volume ls -q)
 elif [[ $1 ]]; then
-   if `docker volume ls -q |grep -w $1` ; then
+   if docker volume ls -q |grep -w $1; then
         VOLUMES=$1
     else
       echo "Volume $1 does not exist."
